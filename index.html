@@ -98,23 +98,23 @@
   </div>
 </div>
 
-<!-- POPUP INTRO VIDEO -->
+<!-- POPUP INTRO VIDEO (YOUTUBE) -->
 <div id="introPopup" class="intro-popup">
   <div class="intro-content">
     <button class="close-btn" id="closePopup">✖ Đóng</button>
     <iframe id="popupIframe"
-      src="https://https://www.youtube.com/embed/IZyzZ2bCV4w"
+      src="https://www.youtube.com/embed/IZyzZ2bCV4w?autoplay=1&rel=0"
       allow="autoplay; encrypted-media"
       allowfullscreen>
     </iframe>
   </div>
 </div>
 
-<!-- VIDEO CHÍNH -->
+<!-- VIDEO CHÍNH (YOUTUBE) -->
 <div class="video-container" id="videoContainer">
   <iframe 
     id="mainIframe"
-    src="https://drive.google.com/file/d/1MOFtXRwUvtA8XKV1v2k0-9OuMWtn2bvm/view?usp=sharing"
+    src="https://www.youtube.com/embed/YOUR_MAIN_VIDEO_ID?rel=0"
     allow="autoplay; encrypted-media"
     allowfullscreen>
   </iframe>
@@ -169,14 +169,14 @@ function playMainVideo(){
   const iframe=document.getElementById('mainIframe');
   content.style.display='none';
   videoContainer.style.display='flex';
-  iframe.src = iframe.src + "?autoplay=1";
+  iframe.src = iframe.src + "&autoplay=1";
 }
 
 document.getElementById('backButton').onclick=function(){
   const content=document.querySelector('.main-content');
   const videoContainer=document.getElementById('videoContainer');
   const iframe=document.getElementById('mainIframe');
-  iframe.src = iframe.src.replace("?autoplay=1","");
+  iframe.src = iframe.src.replace("&autoplay=1","");
   videoContainer.style.display='none';
   content.style.display='flex';
 };
@@ -187,6 +187,7 @@ function openPage(){ window.open('page2.html','_blank'); }
 
 </body>
 </html>
+
 
 
 
