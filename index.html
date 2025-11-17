@@ -128,15 +128,37 @@
 
 <!-- VIDEO CHÍNH (YOUTUBE) -->
 <div class="video-container" id="videoContainer">
-  <iframe 
+  <iframe
     id="mainIframe"
-   src="https://www.youtube.com/embed/cH2T7EtXnaQ"
+    width="100%"
+    height="100%"
+    src="https://www.youtube.com/embed/cH2T7EtXnaQ?autoplay=1&enablejsapi=1"
+    frameborder="0"
     allow="autoplay; encrypted-media"
     allowfullscreen>
   </iframe>
+
   <button id="backButton" class="btn">🔙 Quay lại</button>
 </div>
 
+<script>
+  const iframe = document.getElementById("mainIframe");
+  const backBtn = document.getElementById("backButton");
+
+  backBtn.onclick = () => {
+    // 1️⃣ Tắt video YouTube
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"stopVideo","args":""}',
+      "*"
+    );
+
+    // 2️⃣ Ẩn khung video
+    document.getElementById("videoContainer").style.display = "none";
+
+    // 3️⃣ Hiện lại trang chính
+    document.querySelector(".main-content").style.display = "flex";
+  };
+</script>
 <!-- SOCIAL ICONS -->
 <div class="social-buttons">
   <a href="https://www.facebook.com/profile.php?id=61563963725684" target="_blank">
@@ -245,6 +267,7 @@ function openPage(){
 </script>
 </body>
 </html>
+
 
 
 
